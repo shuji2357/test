@@ -1,0 +1,26 @@
+.skills {
+    padding: 2rem;
+  }
+  
+  .skills h2 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill {
+    margin-bottom: 1.5rem;
+  }
+  
+  .skill h3 {
+    font-size: 1.3rem;
+    color: #333;
+  }
+  
+  .skill ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .skill ul li {
+    margin: 0.5rem 0;
+  }
+  
