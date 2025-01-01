@@ -1,10 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App'; 
+import ReactDOM from 'react-dom/client'; // 'react-dom/client' からインポート
+import App from './App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  console.error('Root element not found');
+}

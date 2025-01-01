@@ -1,15 +1,33 @@
 import React, { useState } from 'react';
-import './Contact.css';
+import '../styles/Contact.css';
 
 const Contact: React.FC = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信のロジック（例: メール送信APIの呼び出しなど）
-    console.log('送信された内容:', { name, email, message });
+    const formData = { name, email, message };
+
+    try {
+      const response = await fetch('https://your-backend-endpoint.com/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('送信成功');
+        // 送信後の処理（例: メッセージの表示や入力フォームのリセット）
+      } else {
+        console.error('送信失敗');
+      }
+    } catch (error) {
+      console.error('エラー:', error);
+    }
   };
 
   return (
